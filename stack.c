@@ -6,28 +6,27 @@ typedef struct Stack{
 	struct Stack *next;
 }Stack;
 
-extern Stack *head;
-
-void push(float v){
+void push(float v, Stack** head){
 	Stack *new = (Stack*)malloc(sizeof(Stack));
 	new->value = v;
-	new->next = head;
-	head = new;
+	new->next = *head;
+	*head = new;
 }
 
-int isempty(){
+int isempty(Stack* head){
 	if (head == NULL){
 		return 1;
 	}
 	return 0;
 }
 
-float pop(void){
-	if(isempty()){
+float pop(Stack** head){
+	Stack* old = *head;
+	if(isempty(old)){
 		printf("Head is null\n");
 		exit(-1);
 	}
-	float val = head->value;
-	head = head->next;
+	float val = old->value;
+	*head = old->next;
 	return val;
 }

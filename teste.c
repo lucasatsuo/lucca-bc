@@ -1,12 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
+#include<stack.h>
 
 int main(){
-    float val;
-    char str[20];
+    Stack* head = NULL;
 
-    strcpy(str, "98993489");
-    val = atof(str);
-    printf("String value = %s, Float value = %f\n", str, val);
+    printf("%d\n",isempty(head));
+    push(101.3,&head);
+    push(102.0,&head);
+    push(103.2,&head);
+    push(104.1,&head);
+    printf("%d\n",isempty(head));
+
+    while(!isempty(head)){
+        printf("%f\n",pop(&head));
+    }
+    printf("%f\n",pop(&head));
 }

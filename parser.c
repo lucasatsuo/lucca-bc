@@ -9,7 +9,7 @@
 #include <parser.h>
 
 float acc;
-Stack *head;
+Stack *head = NULL;
 
 void match (int expected){
     if(lookahead == expected){
@@ -47,21 +47,21 @@ F_begin:
         break;
         //flag 2
         case '+':
-            acc = acc + pop();
+            acc = acc + pop(&head);
         break;
         case '-':
-            acc = pop() - acc;
+            acc = pop(&head) - acc;
         break;
         //flag 3
         case '*':
-            acc = acc * pop();
+            acc = acc * pop(&head);
         break;
         case '/':
             if (acc == 0){
                 printf("Invalid operation\n");
                 exit(-3);
             }
-            acc = pop() / acc;
+            acc = pop(&head) / acc;
         break;
         default:
         break;
@@ -71,14 +71,14 @@ F_begin:
 
     if (lookahead == '*' || lookahead == '/') {
         flag = lookahead;
-        push(acc);
+        push(acc,&head);
         match(lookahead);
         goto F_begin;
     }
 
     if (lookahead == '+' || lookahead == '-') {
         flag = lookahead;
-        push(acc);
+        push(acc,&head);
         match(lookahead);
         goto T_begin;
     }

@@ -3,8 +3,8 @@ typedef struct Stack{
 	struct Stack *next;
 }Stack;
 
-void push(float v);
+void push(float v, Stack** head);
 
-float pop();
+int isempty(Stack* head);
 
-int isempty();
+float pop(Stack** head);
