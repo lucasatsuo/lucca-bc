@@ -16,11 +16,7 @@ int main(){
     source = fopen("teste.txt","r");
     object = stdout;
 
-    lookahead = gettoken(source);
-
-    expr();
-
-    printf("%f\n",acc );
+    mybc();
 
     return 0;
 }

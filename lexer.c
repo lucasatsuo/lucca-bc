@@ -9,6 +9,7 @@
 #include <ctype.h>
 #include <tokens.h>
 #include <lexer.h>
+#include <keywords.h>
 
 int lookahead;
 char lexeme[MAXIDLEN + 1];
@@ -35,7 +36,7 @@ int gettoken(FILE *tape){
 }
 
 int isID(FILE *tape){
-    int i = 0, token = 0;
+    int i = 0, token = 0, keyword;
     /** [a-zA-Z] **/
     if( isalpha( lexeme[i] = getc(tape) ) ){
         i++;
@@ -45,6 +46,13 @@ int isID(FILE *tape){
         // finalizing the string lexeme
         // which contains the ID source
         lexeme[i] = 0;
+
+        /* Checking if the ID found is a reserved word */
+        keyword = iskeyword(lexeme);
+        if(keyword){
+            return keyword;
+        }
+
         token = ID;
         return token;
     }

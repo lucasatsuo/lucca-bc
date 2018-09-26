@@ -16,3 +16,11 @@ void expr(void);
 void fact(void);
 
 void exec_negate(void);
+
+void mybc(void);
+
+int cmdquit();
+
+int cmdsep();
+
+int is_FIRST_expr();
