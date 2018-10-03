@@ -8,7 +8,6 @@ extern FILE* source;
  * DESCRIPTION: match compares the token stored on lookahead
  * against a provided expected token. If it matches it loads the next token
  * otherwise it stops with an error **/
-
 void match (int expected);
 
 void expr(void);
