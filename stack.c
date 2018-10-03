@@ -1,10 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stack.h>
 
-typedef struct Stack{
-	float value;
-	struct Stack *next;
-}Stack;
+Stack *head = NULL;
 
 void push(float v, Stack** head){
 	Stack *new = (Stack*)malloc(sizeof(Stack));

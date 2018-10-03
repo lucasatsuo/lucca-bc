@@ -10,7 +10,7 @@
 #include <parser.h>
 
 float acc;
-Stack *head = NULL;
+extern Stack *head;
 
 void match (int expected){
     if(lookahead == expected){
