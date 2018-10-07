@@ -52,7 +52,6 @@ int isID(FILE *tape){
         if(keyword){
             return keyword;
         }
-
         token = ID;
         return token;
     }

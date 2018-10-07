@@ -1,8 +1,10 @@
-#define KEYWORD_ARR_SIZE 5
+#define KEYWORD_ARR_SIZE 4
 
 enum{
 	QUIT = 2048, EXIT, BYE, LOGOUT
 };
+
+//nota do editor: eu removi o nulo ^ pq tava dando problema 
 
 extern char *keyword[KEYWORD_ARR_SIZE];
 

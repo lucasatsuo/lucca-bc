@@ -3,7 +3,7 @@
 #include <keywords.h>
 
 char *keyword[] = {
-	"quit", "exit", "bye", "logout", NULL
+	"quit", "exit", "bye", "logout"
 };
 
 int iskeyword(const char* symbol){

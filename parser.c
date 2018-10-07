@@ -7,10 +7,14 @@
 #include <string.h>
 #include <stack.h>
 #include <keywords.h>
+#include <symtable.h>
 #include <parser.h>
 
 float acc;
 extern Stack *head;
+
+char symbol[MAXIDLEN];
+extern cell table[];
 
 void match (int expected){
     if(lookahead == expected){
@@ -158,11 +162,15 @@ F_begin:
 void fact(){
     switch (lookahead) {
         case ID:
+            strcpy(symbol,lexeme);
             match(ID);
             if(lookahead == '='){
                 match('=');
                 expr();
                 // acao semantica 7
+                updatesym(table,symbol,acc);
+            }else{
+                acc = retrievesym(table,symbol);
             }
             break;
         case UINT:
