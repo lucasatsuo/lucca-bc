@@ -1,3 +1,4 @@
+#include <stdio.h>
 #define MAXIDLEN 63
 
 /** FUNCTION: skipspaces

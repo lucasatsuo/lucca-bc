@@ -4,16 +4,19 @@
 #include <stdlib.h>
 #include <lexer.h>
 #include <parser.h>
+#include <symtable.h>
 #include <tokens.h>
 
 FILE *source, *object;
 extern int lookahead;
 extern char lexeme[MAXIDLEN + 1];
 extern float acc;
+extern cell table[];
 
 int main(){
 
-    source = fopen("teste.txt","r");
+//    source = fopen("teste.txt","r");
+    source = stdin;
     object = stdout;
 
     mybc();

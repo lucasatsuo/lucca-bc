@@ -113,17 +113,6 @@ F_begin:
         isnegate = 0;
     }
 
-    switch(oplus){
-        case '+':
-        acc = pop(&head) + acc;
-        oplus = 0;
-        break;
-
-        case '-':
-        acc = pop(&head) - acc;
-        oplus = 0;
-    }
-
     switch(otimes){
         case '*':
         acc = pop(&head) * acc;
@@ -145,6 +134,17 @@ F_begin:
         push(acc,&head);
         match(lookahead);
         goto F_begin;
+    }
+
+    switch(oplus){
+        case '+':
+        acc = pop(&head) + acc;
+        oplus = 0;
+        break;
+
+        case '-':
+        acc = pop(&head) - acc;
+        oplus = 0;
     }
 
     if (lookahead == '+' || lookahead == '-') {

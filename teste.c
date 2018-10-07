@@ -1,19 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<stack.h>
+#include<symtable.h>
+
+extern cell table[];
 
 int main(){
-    Stack* head = NULL;
-
-    printf("%d\n",isempty(head));
-    push(101.3,&head);
-    push(102.0,&head);
-    push(103.2,&head);
-    push(104.1,&head);
-    printf("%d\n",isempty(head));
-
-    while(!isempty(head)){
-        printf("%f\n",pop(&head));
-    }
-    printf("%f\n",pop(&head));
+    printf("%s %f\n",table[0].id,table[0].val);
+    printf("%s %f\n",table[1].id,table[1].val);
+    updatesym(table,"a",12.5);
+    updatesym(table,"a",2.5);
+    printf("%s %f\n",table[0].id,retrievesym(table,"a"));
+    printf("%s %f\n",table[1].id,retrievesym(table,"b"));
 }
