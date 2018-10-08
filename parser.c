@@ -30,16 +30,6 @@ void mybc (void){
     //Acao semantica
     lookahead = gettoken(source);
 
-    // while(!cmdquit()){
-    //     if (is_FIRST_expr()){
-    //         expr();
-    //         printf("%lg",acc);
-    //     }
-    //     cmdsep();
-    // }
-    // expr();
-    // match(EOF);
-
 mybc_start:
 
 cmd_start:
