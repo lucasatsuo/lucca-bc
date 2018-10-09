@@ -12,6 +12,7 @@
 
 float acc;
 extern Stack *head;
+
 char symbol[MAXIDLEN];
 extern cell table[];
 
