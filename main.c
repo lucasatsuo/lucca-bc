@@ -19,8 +19,6 @@ int main(){
     source = stdin;
     object = stdout;
 
-    updatesym(table,"asd",1.5);
-
     mybc();
 
     return 0;
